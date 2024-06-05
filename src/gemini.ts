@@ -16,7 +16,7 @@ const runPrompt = async () => {
 
     const text = response.text();
 
-    console.log(text);
+    return text;
 }
 
 export {runPrompt};

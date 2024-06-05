@@ -1,14 +1,7 @@
 import { TwitterApi } from "twitter-api-v2";
-import { config } from "dotenv";
-import path from "path";
-import { fileURLToPath } from "url";
+import dotenv from "dotenv";
 
-// Get the current file's directory
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Load environment variables from .env file
-config({ path: path.resolve(__dirname, "../.env") });
+dotenv.config()
 
 const client = new TwitterApi({
     appKey: process.env.API_KEY as string,
