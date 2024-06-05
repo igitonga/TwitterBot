@@ -2,8 +2,8 @@ import express, {Application, Response, Request} from 'express';
 import { twitterClient } from './twitterClient.js';
 import { runPrompt } from './gemini.js';
 
-const app: Application = express();
-const port: number = 3000;
+// const app: Application = express();
+// const port: number = 3000;
 
 const tweet = async () => {
     const content = await runPrompt();
@@ -17,6 +17,6 @@ const tweet = async () => {
 
 tweet();
 
-app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
-})
+// app.listen(port, () => {
+//     console.log(`Server listening on port ${port}`);
+// })
