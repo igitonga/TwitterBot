@@ -9,7 +9,7 @@ dotenv.config();
 const app: Application = express();
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('This is Twitter Bot!')
+    res.sendFile(process.cwd() + '/index.html');
 })
 
 const tweet = async () => {

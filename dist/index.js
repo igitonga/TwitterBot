@@ -6,7 +6,7 @@ import { CronJob } from 'cron';
 dotenv.config();
 const app = express();
 app.get('/', (req, res) => {
-    res.send('This is Twitter Bot!');
+    res.sendFile(process.cwd() + '/index.html');
 });
 const tweet = async () => {
     const content = await runPrompt();
