@@ -2,6 +2,7 @@ import express, {Application, Response, Request} from 'express';
 import dotenv from "dotenv";
 import { twitterClient } from './twitterClient.js';
 import { runPrompt } from './gemini.js';
+import { CronJob } from 'cron';
 
 dotenv.config();
 
@@ -21,7 +22,12 @@ const tweet = async () => {
     }
 }
 
-tweet();
+const cronTweet = new CronJob("0 */1 * * *", async () => {
+    // tweet();
+    console.log("Cron run")
+});
+
+cronTweet.start();
 
 app.listen(process.env.PORT, () => {
     console.log(`Server listening on port ${process.env.PORT}`);
