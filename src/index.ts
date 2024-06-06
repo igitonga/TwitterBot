@@ -21,7 +21,7 @@ const tweet = async () => {
     }
 }
 
-//tweet();
+tweet();
 
 app.listen(process.env.PORT, () => {
     console.log(`Server listening on port ${process.env.PORT}`);
