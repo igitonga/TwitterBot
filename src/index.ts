@@ -1,6 +1,6 @@
 import express, {Application, Response, Request} from 'express';
 import dotenv from "dotenv";
-import { twitterClient } from './twitterClient.js';
+import { twitterClient, twitterBearer } from './twitterClient.js';
 import { runPrompt } from './gemini.js';
 import { CronJob } from 'cron';
 
@@ -14,7 +14,7 @@ app.get('/', (req: Request, res: Response) => {
 
 const tweet = async () => {
     const content = await runPrompt();
-    console.log(content);
+
     try {
         await twitterClient.v2.tweet(content);
     } catch (error) {
@@ -22,9 +22,8 @@ const tweet = async () => {
     }
 }
 
-const cronTweet = new CronJob("0 */1 * * *", async () => {
-    // tweet();
-    console.log("Cron run")
+const cronTweet = new CronJob("0 */12 * * *", async () => {
+    tweet();
 });
 
 cronTweet.start();

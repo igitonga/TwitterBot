@@ -10,7 +10,6 @@ app.get('/', (req, res) => {
 });
 const tweet = async () => {
     const content = await runPrompt();
-    console.log(content);
     try {
         await twitterClient.v2.tweet(content);
     }
@@ -18,9 +17,8 @@ const tweet = async () => {
         console.log(error);
     }
 };
-const cronTweet = new CronJob("0 */1 * * *", async () => {
-    // tweet();
-    console.log("Cron run");
+const cronTweet = new CronJob("0 */12 * * *", async () => {
+    tweet();
 });
 cronTweet.start();
 app.listen(process.env.PORT, () => {
