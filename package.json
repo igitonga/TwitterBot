@@ -1,11 +1,11 @@
 {
   "name": "twitterbot",
   "version": "1.0.0",
-  "description": "A bot to tweet something funny everyday",
+  "description": "Tweeting about keeping the world green",
   "main": "node server.ts",
   "type": "module",
   "scripts": {
-    "build": "npx tsc",
+    "build": "tsc",
     "dev": "node dist/index.js",
     "test": "node run test"
   },
@@ -22,6 +22,6 @@
     "@tsconfig/node20": "^20.1.4",
     "@types/express": "^4.17.21",
     "@types/node": "^20.14.1",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.3"
   }
 }
