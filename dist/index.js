@@ -17,7 +17,7 @@ const tweet = async () => {
         console.log(error);
     }
 };
-const cronTweet = new CronJob("0 */3 * * *", async () => {
+const cronTweet = new CronJob("0 */8 * * *", async () => {
     tweet();
 });
 cronTweet.start();
