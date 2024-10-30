@@ -1,6 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import dotenv from "dotenv";
-import fetch from 'node-fetch';
 import { querySet } from "./helper/data.js";
 import { note } from "./helper/data.js";
 

@@ -1,6 +1,5 @@
 import express, {Application, Response, Request} from 'express';
 import dotenv from "dotenv";
-import fetch from 'node-fetch';
 import { twitterClient, twitterBearer } from './twitterClient.js';
 import { runPrompt } from './gemini.js';
 import { CronJob } from 'cron';
