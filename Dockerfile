@@ -19,6 +19,10 @@ RUN npm run build
 # Create a new stage for the production image
 FROM node:${NODE_VERSION}-alpine
 
+# Set timezone for container
+ENV TZ=Africa/Nairobi
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Set environment to production
 ENV NODE_ENV production
 
