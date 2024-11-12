@@ -7,7 +7,7 @@ dotenv.config()
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY as string);
 
-function getRandomQuestion<T>(arr: T[]): T {
+function getTopic<T>(arr: T[]): T {
     const randomIndex = Math.floor(Math.random() * arr.length);
     return arr[randomIndex];
 }
@@ -15,7 +15,7 @@ function getRandomQuestion<T>(arr: T[]): T {
 const runPrompt = async () => {
     const model = genAI.getGenerativeModel({model: "gemini-1.5-flash"});
 
-    const prompt = getRandomQuestion(querySet) + note;
+    const prompt = getTopic(querySet) + note;
 
     const result = await model.generateContent(prompt);
 
